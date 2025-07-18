@@ -18,6 +18,14 @@ Things to do after installing Fedora 42
 * `sudo dnf -y update`
 * Reboot
 
+## Faster Updates
+Enable more parallel downloads. Recommended if you have a reasonably fast broadband connection.
+* add `max_parallel_downloads = 20` to `/etc/dnf/dnf.conf`
+
+[main]
+max_parallel_downloads = 20
+```
+
 ## Firmware
 * If your system supports firmware update delivery through lvfs, update your device firmware by:
 ```
