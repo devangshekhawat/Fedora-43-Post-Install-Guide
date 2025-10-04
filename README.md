@@ -138,6 +138,30 @@ DNSOverTLS=yes
 ### Disable Gnome Software from Startup Apps
 * Gnome software autostarts on boot for some reason, even though it is not required on every boot unless you want it to do updates in the background, this takes at least 100MB of RAM upto 900MB (as reported anecdotically). You can stop it from autostarting by:
 * `sudo rm /etc/xdg/autostart/org.gnome.Software.desktop`
+* 
+
+## copr repos
+* if you can't find a specific package in fedoras official repos you can find it in [Copr](https://copr.fedorainfracloud.org/) commuinity repos just get in there and search for the package the when you find the name of the package and the publisher run:
+  ```
+  sudo dnf copr enable <publisher-name>/<package-name>
+  sudo dnf install <package-name>
+  ```
+
+## setup virtualization tools [optional]
+* to run virtual machines with QEMU/KVM and virt-manager rn this commands
+  ```
+  sudo dnf install @virtualization
+  sudo dnf group install --with-optional virtualization
+  sudo systemctl start libvirtd
+  sudo systemctl enable libvirtd
+  ```
+
+## fedora old kernels cleanup [optional]
+* fedora keeps the older versions of the linux kernel after every major update, just in case the system failed to boot, if you want to clean them up, run after every update:
+  ```
+  sudo dnf remove $(dnf rq --installonly --latest-limit=-2)
+  ```
+* this will keep 2 kernels every update for safety you can only keep one version if you want (no recommanded).
 
 ## Gnome Extensions [Optional]
 * Suggestions for good utilities to extend the capabilities of your system
