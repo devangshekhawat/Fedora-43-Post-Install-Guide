@@ -138,7 +138,6 @@ DNSOverTLS=yes
 ### Disable Gnome Software from Startup Apps
 * Gnome software autostarts on boot for some reason, even though it is not required on every boot unless you want it to do updates in the background, this takes at least 100MB of RAM upto 900MB (as reported anecdotically). You can stop it from autostarting by:
 * `sudo rm /etc/xdg/autostart/org.gnome.Software.desktop`
-* 
 
 ## copr repos
 * if you can't find a specific package in fedoras official repos you can find it in [Copr](https://copr.fedorainfracloud.org/) commuinity repos just get in there and search for the package the when you find the name of the package and the publisher run:
