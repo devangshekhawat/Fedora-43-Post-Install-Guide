@@ -53,6 +53,12 @@ sudo fwupdmgr update
 * `modinfo -F version nvidia` #Check if the kernel module is built.
 * Reboot
 
+### NVIDIA Drivers for Encrypted Disk
+* If you have encrypted your disk, you will see a blank screen after typing your password for accessing your disk. Plymouth tries to initialize graphics before the NVIDIA module is loaded, leading to a black or frozen screen.
+* Restart the PC and keep hitting 'e' to enter the GRUB Menu.
+* To the line starting with "linux" (it will be the longest line), append "nomodeset". This tells the system not to use the GPU.
+* Now you can successfully login and follow the steps above to install Nvidia Drivers.
+
 ## ~~Battery Life (Deprecated)~~
 * ~~Follow this if you have a Laptop and are facing sub optimal battery backup.~~
 * ~~power-profiles-daemon which come pre-configured on fedora works well on a great majority of systems but still in case you're facing sub-optimal battery backup you try installing tlp by:~~
