@@ -119,7 +119,10 @@ sudo mkdir -p '/etc/systemd/resolved.conf.d' && sudo -e '/etc/systemd/resolved.c
 [Resolve]
 DNS=1.1.1.2#security.cloudflare-dns.com 1.0.0.2#security.cloudflare-dns.com 2606:4700:4700::1112#security.cloudflare-dns.com 2606:4700:4700::1002#security.cloudflare-dns.com
 DNSOverTLS=yes
+Domains=~.
 ```
+Adding Domains=~. ensures these DNS servers are used globally, not just as fallback.
+
 ## Set UTC Time
 * Used to counter time inconsistencies in dual boot systems
 * `sudo timedatectl set-local-rtc '0'`
