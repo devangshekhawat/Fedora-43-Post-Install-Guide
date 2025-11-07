@@ -44,6 +44,7 @@ sudo fwupdmgr update
 ## NVIDIA Drivers
 * Only follow this if you have a NVIDIA gpu. Also, don't follow this if you have a gpu which has dropped support for newer driver releases i.e. anything earlier than nvidia GT/GTX 600, 700, 800, 900, 1000, 1600 and RTX 2000, 3000, 4000, 5000 series. Fedora comes preinstalled with NOUVEAU drivers which may or may not work better on those remaining older GPUs. This should be followed by Desktop and Laptop users alike.
 * `sudo dnf update` #To make sure you're on the latest kernel and then reboot.
+* IMPORTANT NOTE: Check if you have Secure Boot enabled with: `mokutil --sb-state`. If yes then you can chose to either disable secure boot in your BIOS or you must follow the "Secure Boot Key Enrollment" section of [this guide](https://github.com/Comprehensive-Wall28/Nvidia-Fedora-Guide?tab=readme-ov-file#2-secure-boot-key-enrollment) before continuing with the steps below.
 * Enable RPM Fusion Nvidia non-free repository in the app store and install it from there,
 * or alternatively
 * `sudo dnf install akmod-nvidia`
@@ -51,13 +52,9 @@ sudo fwupdmgr update
 * `sudo dnf install xorg-x11-drv-nvidia-cuda`
 * Wait for atleast 5 mins before rebooting, to let the kernel module get built.
 * `modinfo -F version nvidia` #Check if the kernel module is built.
-* Reboot
+* IMPORTANT (optional): If your disk is encrypted follow the Encrypted Disk section of [this guide](https://github.com/Comprehensive-Wall28/Nvidia-Fedora-Guide?tab=readme-ov-file#encrypted-drives).
+* Reboot once its built.
 
-### NVIDIA Drivers for Encrypted Disk (OPTIONAL)
-* If you have encrypted your disk, you will see a blank screen after typing your password for accessing your disk. Plymouth tries to initialize graphics before the NVIDIA module is loaded, leading to a black or frozen screen.
-* Restart the PC and keep hitting 'e' to enter the GRUB Menu.
-* To the line starting with "linux" (it will be the longest line), append "nomodeset". This tells the system not to use the GPU.
-* Now you can successfully login and follow the steps above to install Nvidia Drivers.
 
 ## ~~Battery Life (Deprecated)~~
 * ~~Follow this if you have a Laptop and are facing sub optimal battery backup.~~
