@@ -32,7 +32,7 @@ sudo fwupdmgr update
 * `flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo`
 
 * Fedora doesn't enable Flatpak user-home installation by default, to enable it run:
-* `flatpak remote-add --user --if-not-exists flathub https://flathub.org/repo/flath>`
+* `flatpak remote-add --user --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo`
 
 ## AppImage
 
